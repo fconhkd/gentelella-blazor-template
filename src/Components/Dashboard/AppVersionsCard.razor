@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">App Versions</div>
+    </div>
+    <div class="card-body version-list">
+        @foreach (var item in Items)
+        {
+            <div class="version-row" @key="item.Version">
+                <div class="version-meta">
+                    <span>@item.Version</span>
+                    <strong>@item.Percent</strong>
+                </div>
+                <div class="progress-thin">
+                    <div class="bar @item.WidthClass @item.ColorClass"></div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public IReadOnlyList<AppVersionItem> Items { get; set; } = [];
+}

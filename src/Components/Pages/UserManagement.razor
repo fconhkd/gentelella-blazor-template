@@ -1,0 +1,62 @@
+@page "/users"
+
+<PageTitle>User management</PageTitle>
+
+<div class="page-header">
+    <div class="page-header-row">
+        <div>
+            <div class="page-pretitle">Admin</div>
+            <h1 class="page-title">User management</h1>
+        </div>
+        <div class="page-actions">
+            <button type="button" class="btn btn-outline">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M12 3v12" />
+                    <path d="m7 10 5 5 5-5" />
+                    <path d="M5 21h14" />
+                </svg>
+                Export
+            </button>
+            <button type="button" class="btn btn-primary">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M12 5v14M5 12h14" />
+                </svg>
+                Invite user
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row col-3">
+    @foreach (var stat in UserStats)
+    {
+        <StatCard Item="stat" @key="stat.Label" />
+    }
+</div>
+
+<UserManagementTable Items="Users" />
+
+@code {
+    private static readonly IReadOnlyList<StatItem> UserStats =
+    [
+        new("Total users", "12", "3 live", "3 active right now", "users", "teal"),
+        new("Admins", "2", "+1", "Owner + 1 admin", "conversions", "blue"),
+        new("Pending invites", "2", "2", "Awaiting acceptance", "orders", "yellow")
+    ];
+
+    private static readonly IReadOnlyList<UserManagementItem> Users =
+    [
+        new("Aigars Silkalns", "aigars@example.com", "A", "avatar-primary", "Owner", "role-purple", "Active", "status-green", "just now", "Mar 2024"),
+        new("Sarah Kowalski", "sarah@example.com", "SK", "avatar-azure", "Admin", "role-red", "Active", "status-green", "2 min ago", "Apr 2024"),
+        new("Michael Reyes", "michael@example.com", "MR", "avatar-purple", "Editor", "role-blue", "Active", "status-green", "14 min ago", "May 2024"),
+        new("Emily Wang", "emily@example.com", "EW", "avatar-yellow", "Editor", "role-blue", "Active", "status-green", "1 hour ago", "Jun 2024"),
+        new("Mark Kim", "mark@example.com", "MK", "avatar-red", "Viewer", "role-green", "Active", "status-green", "3 hours ago", "Jul 2024"),
+        new("Lina Park", "lina@example.com", "LP", "avatar-green", "Editor", "role-blue", "Active", "status-green", "Yesterday", "Sep 2024"),
+        new("Diego Reyes", "diego@example.com", "DR", "avatar-blue", "Editor", "role-blue", "Active", "status-green", "2 days ago", "Sep 2024"),
+        new("Yuki Tanaka", "yuki@example.com", "YT", "avatar-primary", "Viewer", "role-green", "Active", "status-green", "4 days ago", "Oct 2024"),
+        new("Tom Hardy", "tom@example.com", "TH", "avatar-purple", "Editor", "role-blue", "Active", "status-green", "1 week ago", "Nov 2024"),
+        new("Robert Jones", "robert@example.com", "RJ", "avatar-red", "Viewer", "role-green", "Suspended", "status-red", "2 weeks ago", "Dec 2024"),
+        new("invite@acme.com", "invite@acme.com", "?", "avatar-gray", "Editor", "role-blue", "Pending", "status-yellow", "-", "Apr 28, 2026", true),
+        new("newhire@team.io", "newhire@team.io", "?", "avatar-gray", "Viewer", "role-green", "Pending", "status-yellow", "-", "Apr 27, 2026", true)
+    ];
+}

@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">Visitors by Location</div>
+    </div>
+    <div class="card-body compact-card-body">
+        @foreach (var location in Items)
+        {
+            <div class="visitor-row" @key="location.Name">
+                <span class="visitor-flag">@location.Code</span>
+                <span class="visitor-name">@location.Name</span>
+                <span class="visitor-pct">@location.Percent</span>
+                <div class="visitor-bar">
+                    <div class="fill @location.WidthClass"></div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public IReadOnlyList<VisitorLocation> Items { get; set; } = [];
+}

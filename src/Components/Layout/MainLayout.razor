@@ -1,0 +1,26 @@
+@inherits LayoutComponentBase
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<GentelellaSidebar />
+
+<main id="main-content" tabindex="-1" class="main">
+    <GentelellaTopbar />
+
+    <div class="page-wrapper">
+        @Body
+    </div>
+
+    <footer class="footer">
+        <span>Gentelella - A free admin template by Colorlib</span>
+        <span>v4.0.2 concept port for Blazor</span>
+    </footer>
+</main>
+
+<div class="sidebar-backdrop" data-sidebar-backdrop hidden></div>
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">x</span>
+</div>

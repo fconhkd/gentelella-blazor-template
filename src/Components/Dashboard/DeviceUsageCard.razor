@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">Device Usage</div>
+    </div>
+    <div class="card-body">
+        <div class="donut-block">
+            <div class="donut-svg">
+                <div class="device-donut"></div>
+                <div class="donut-center-label">
+                    <div class="num">8.4k</div>
+                    <div>devices</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="device-list">
+            @foreach (var segment in Segments)
+            {
+                <div class="device-row" @key="segment.Label">
+                    <span><span class="legend-dot @segment.ColorClass"></span>@segment.Label</span>
+                    <strong>@segment.Percent</strong>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public IReadOnlyList<DeviceSegment> Segments { get; set; } = [];
+}

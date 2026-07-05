@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">Recent Activity</div>
+        <div class="card-options">
+            <button type="button" class="card-opt-btn" aria-label="Card options">
+                <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M3 7h8" />
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="card-body compact-card-body">
+        <ul class="activity-list">
+            @foreach (var item in Items)
+            {
+                <li class="activity-item" @key="item">
+                    <div class="activity-avatar @item.Color">@item.Initials</div>
+                    <div>
+                        <div class="activity-body"><strong>@item.Lead</strong> @item.Text</div>
+                        <div class="activity-time">@item.Time</div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public IReadOnlyList<ActivityItem> Items { get; set; } = [];
+}

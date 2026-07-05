@@ -1,0 +1,126 @@
+@page "/"
+
+<PageTitle>Dashboard</PageTitle>
+
+<div class="page-header">
+    <div class="page-header-row">
+        <div>
+            <div class="page-pretitle">Overview</div>
+            <h1 class="page-title">Dashboard</h1>
+        </div>
+        <div class="page-actions">
+            <button type="button" class="btn btn-outline">New view</button>
+            <button type="button" class="btn btn-primary">Create report</button>
+        </div>
+    </div>
+</div>
+
+<div class="row col-3">
+    @foreach (var stat in Stats.Take(3))
+    {
+        <StatCard Item="stat" @key="stat.Label" />
+    }
+</div>
+
+<div class="row col-3">
+    @foreach (var stat in Stats.Skip(3))
+    {
+        <StatCard Item="stat" @key="stat.Label" />
+    }
+</div>
+
+<div class="row col-8-4">
+    <NetworkChartCard />
+    <ActivityFeed Items="Activities" />
+</div>
+
+<div class="row col-8-4">
+    <OrdersTable Items="Orders" />
+    <div class="dashboard-stack">
+        <StorageCard Segments="Storage" />
+        <DeviceUsageCard Segments="Devices" />
+    </div>
+</div>
+
+<div class="row col-3">
+    <VisitorsCard Items="Visitors" />
+    <TasksCard Items="Tasks" />
+    <AppVersionsCard Items="Versions" />
+</div>
+
+@code {
+    private static readonly IReadOnlyList<StatItem> Stats =
+    [
+        new("Total Users", "2,500", "12%", "342 new this week", "users", "teal"),
+        new("Avg Session", "123.5 min", "8%", "+14min from last week", "clock", "blue"),
+        new("Orders", "1,240", "3%", "78 shipped today", "orders", "yellow"),
+        new("Revenue", "$24,567", "18%", "$3,218 today", "revenue", "green"),
+        new("Conversions", "2,315", "5%", "Rate: 4.2%", "conversions", "red"),
+        new("Page Views", "47,325", "22%", "6,854 unique visitors", "views", "purple")
+    ];
+
+    private static readonly IReadOnlyList<ActivityItem> Activities =
+    [
+        new("SK", "Sarah K.", "placed a new order for $245.00", "2 min ago", "avatar-teal"),
+        new("MR", "Michael R.", "registered a new account", "18 min ago", "avatar-blue"),
+        new("SY", "Payment", "processed - Invoice #4521", "45 min ago", "avatar-green"),
+        new("JL", "Jeffie L.", "reviewed Dashboard Kit", "1 hour ago", "avatar-yellow"),
+        new("EL", "Emmy L.", "created project Morning Clock", "4 hours ago", "avatar-purple"),
+        new("DS", "Shipment", "dispatched - Order #3847", "6 hours ago", "avatar-red")
+    ];
+
+    private static readonly IReadOnlyList<OrderItem> Orders =
+    [
+        new("#7841", "JD", "John Doe", "AdminLTE Pro", "$245", "Paid", "status-green", "Feb 14", "avatar-teal"),
+        new("#7840", "AS", "Anna Smith", "Gentelella Theme", "$89", "Processing", "status-blue", "Feb 13", "avatar-blue"),
+        new("#7839", "RJ", "Robert Jones", "Dashboard Pack", "$490", "Paid", "status-green", "Feb 13", "avatar-green"),
+        new("#7838", "EW", "Emily Wang", "ArchitectUI", "$125", "Pending", "status-yellow", "Feb 12", "avatar-yellow"),
+        new("#7837", "MK", "Mark Kim", "Bootstrap Bundle", "$67", "Cancelled", "status-red", "Feb 11", "avatar-red")
+    ];
+
+    private static readonly IReadOnlyList<StorageSegment> Storage =
+    [
+        new("Regular", "3.4 GB", "w-42", "bg-primary"),
+        new("System", "1.4 GB", "w-18", "bg-azure"),
+        new("Shared", "1.0 GB", "w-13", "bg-purple"),
+        new("Free", "1.2 GB", "w-15", "bg-muted")
+    ];
+
+    private static readonly IReadOnlyList<DeviceSegment> Devices =
+    [
+        new("iOS", "30%", "bg-primary"),
+        new("Android", "25%", "bg-azure"),
+        new("Desktop", "20%", "bg-purple"),
+        new("Tablet", "15%", "bg-yellow"),
+        new("Other", "10%", "bg-muted")
+    ];
+
+    private static readonly IReadOnlyList<VisitorLocation> Visitors =
+    [
+        new("US", "United States", "33%", "w-33"),
+        new("FR", "France", "27%", "w-27"),
+        new("DE", "Germany", "16%", "w-16"),
+        new("ES", "Spain", "11%", "w-11"),
+        new("UK", "United Kingdom", "10%", "w-10"),
+        new("LV", "Latvia", "3%", "w-3")
+    ];
+
+    private static readonly IReadOnlyList<TaskItem> Tasks =
+    [
+        new("Review Q4 analytics report", "Dec 08", true),
+        new("Send invoices to clients", "Jan 01", true),
+        new("Update user documentation", "Jan 15", false, "prio-yellow"),
+        new("Deploy v3.2.1 to production", "Feb 01", false, "prio-red"),
+        new("Fix sidebar responsive issues", "Feb 14", false),
+        new("Prepare team standup notes", "Feb 15", false)
+    ];
+
+    private static readonly IReadOnlyList<AppVersionItem> Versions =
+    [
+        new("v3.2.1", "68%", "w-68", "bg-primary"),
+        new("v3.2.0", "52%", "w-52", "bg-azure"),
+        new("v3.1.9", "34%", "w-34", "bg-green"),
+        new("v3.1.8", "21%", "w-21", "bg-yellow"),
+        new("v3.1.7", "14%", "w-14", "bg-red")
+    ];
+}

@@ -1,0 +1,178 @@
+@page "/profile"
+
+<PageTitle>Profile</PageTitle>
+
+<div class="page-header">
+    <div class="page-header-row">
+        <div>
+            <div class="page-pretitle">Account</div>
+            <h1 class="page-title">Your profile</h1>
+        </div>
+        <div class="page-actions">
+            <button type="button" class="btn btn-outline">Export data</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+</div>
+
+<div class="profile-page-grid">
+    <aside class="profile-side">
+        <div class="card">
+            <div class="card-body profile-summary">
+                <div class="profile-avatar-xl">A</div>
+                <div class="profile-name">Aigars Silkalns</div>
+                <div class="profile-role">Founder at Colorlib</div>
+                <button type="button" class="btn btn-outline btn-sm">Change avatar</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="profile-ring-box">
+                <div class="ring-wrap">
+                    <svg viewBox="0 0 80 80" aria-hidden="true">
+                        <circle class="ring-bg" cx="40" cy="40" r="34" />
+                        <circle class="ring-fg" cx="40" cy="40" r="34" />
+                    </svg>
+                    <span>82%</span>
+                </div>
+                <div class="note">Profile completion</div>
+                <a href="#personal-info" class="ring-link">Complete now</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Account stats</div>
+            </div>
+            <div class="profile-stat-grid">
+                <div>
+                    <strong>28</strong>
+                    <span>Projects</span>
+                </div>
+                <div>
+                    <strong>14</strong>
+                    <span>Team</span>
+                </div>
+                <div>
+                    <strong>842</strong>
+                    <span>Commits</span>
+                </div>
+                <div>
+                    <strong>4.9</strong>
+                    <span>Rating</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <section class="profile-main">
+        <div class="card" id="personal-info">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">Personal information</div>
+                    <div class="card-subtitle">Update your name, email, and contact details.</div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="firstName">First name</label>
+                            <input type="text" id="firstName" class="form-control" value="Aigars" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lastName">Last name</label>
+                            <input type="text" id="lastName" class="form-control" value="Silkalns" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="profileEmail">Email <span class="required">*</span></label>
+                            <input type="email" id="profileEmail" class="form-control" value="aigars@colorlib.com" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Phone</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="+371 ..." />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="role">Role</label>
+                        <select id="role" class="form-control">
+                            <option>Administrator</option>
+                            <option>Editor</option>
+                            <option>Viewer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="bio">Bio</label>
+                        <textarea id="bio" class="form-control" placeholder="Tell us a bit about yourself">Founder at Colorlib. Building admin templates since 2014.</textarea>
+                        <div class="form-help">Brief description for your profile. URLs are hyperlinked.</div>
+                    </div>
+                    <div class="form-actions right">
+                        <button type="reset" class="btn btn-outline">Discard</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">Notifications</div>
+                    <div class="card-subtitle">Choose how we contact you.</div>
+                </div>
+            </div>
+            <div class="card-body profile-toggle-list">
+                <div class="toggle-row"><div><div class="label">Product updates</div><div class="desc">Get notified about new features and improvements.</div></div><div class="toggle on"></div></div>
+                <div class="toggle-row"><div><div class="label">Weekly digest</div><div class="desc">A summary of activity, every Monday.</div></div><div class="toggle on"></div></div>
+                <div class="toggle-row"><div><div class="label">Security alerts</div><div class="desc">Sign-ins from new devices and password changes.</div></div><div class="toggle on"></div></div>
+                <div class="toggle-row"><div><div class="label">Marketing emails</div><div class="desc">Tips, deals, and partner offers.</div></div><div class="toggle"></div></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">Sessions</div>
+                    <div class="card-subtitle">Devices currently signed into your account.</div>
+                </div>
+                <button type="button" class="btn btn-outline btn-sm">Sign out all</button>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Device</th>
+                                <th>Location</th>
+                                <th>Last active</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="cell-strong">MacBook Pro - Safari</td>
+                                <td>Riga, LV</td>
+                                <td>Current session</td>
+                                <td><span class="status status-green">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td class="cell-strong">Windows - Edge</td>
+                                <td>Berlin, DE</td>
+                                <td>2 hours ago</td>
+                                <td><span class="status status-blue">Trusted</span></td>
+                            </tr>
+                            <tr>
+                                <td class="cell-strong">iPhone - Mobile Safari</td>
+                                <td>Paris, FR</td>
+                                <td>Yesterday</td>
+                                <td><span class="status status-yellow">Review</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

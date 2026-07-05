@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <script>
+        (function () {
+            try {
+                var storedTheme = localStorage.getItem('theme');
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.documentElement.setAttribute('data-theme', storedTheme || (prefersDark ? 'dark' : 'light'));
+            } catch (error) {
+            }
+        })();
+    </script>
+    <ResourcePreloader />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="@Assets["gentelella/main-v4.css"]" />
+    <link rel="stylesheet" href="@Assets["app.css"]" />
+    <link rel="stylesheet" href="@Assets["Gentelelle.styles.css"]" />
+    <ImportMap />
+    <link rel="icon" href="@Assets["gentelella/favicon.svg"]" type="image/svg+xml" />
+    <HeadOutlet />
+</head>
+
+<body data-shell="admin" data-page="dashboard" data-breadcrumb="Home > Dashboard">
+    <Routes />
+    <ReconnectModal />
+    <script src="@Assets["gentelella/gentelella-blazor.js"]"></script>
+    <script src="@Assets["_framework/blazor.web.js"]"></script>
+</body>
+
+</html>

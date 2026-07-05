@@ -1,0 +1,66 @@
+<div class="user-menu user-menu-@Variant" data-user-menu>
+    <button type="button" class="@ButtonClass" data-user-menu-button aria-label="Account menu" aria-haspopup="menu" aria-expanded="false">
+        @if (Variant == "sidebar")
+        {
+            <span class="avatar">A<span class="online"></span></span>
+            <span class="sidebar-user-info">
+                <span class="name">Aigars Silkalns</span>
+                <span class="role">Admin</span>
+            </span>
+            <span class="more-btn" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="5" cy="12" r="1.5" />
+                    <circle cx="12" cy="12" r="1.5" />
+                    <circle cx="19" cy="12" r="1.5" />
+                </svg>
+            </span>
+        }
+        else
+        {
+            <span>A</span>
+        }
+    </button>
+
+    <div class="user-menu-panel" data-user-menu-panel role="menu" hidden>
+        <div class="user-menu-header">
+            <span class="avatar menu-avatar">A</span>
+            <span>
+                <strong>Aigars Silkalns</strong>
+                <small>aigars@colorlib.com</small>
+            </span>
+        </div>
+
+        <NavLink class="user-menu-item" href="profile" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+            </svg>
+            Profile
+        </NavLink>
+
+        <NavLink class="user-menu-item" href="settings" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" />
+            </svg>
+            Settings
+        </NavLink>
+
+        <div class="user-menu-separator"></div>
+
+        <NavLink class="user-menu-item danger" href="login" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M10 17l5-5-5-5" />
+                <path d="M15 12H3" />
+                <path d="M21 3v18" />
+            </svg>
+            Log out
+        </NavLink>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Variant { get; set; } = "sidebar";
+
+    private string ButtonClass => Variant == "sidebar" ? "sidebar-user" : "tb-avatar";
+}

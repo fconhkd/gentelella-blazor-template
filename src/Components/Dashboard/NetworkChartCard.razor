@@ -1,0 +1,34 @@
+<div class="card">
+    <div class="chart-header">
+        <div class="chart-header-left">
+            <div class="card-title">Network Activities</div>
+            <div class="chart-stat">6,782 <span class="chart-stat-up">+7%</span></div>
+            <div class="chart-caption">Total sessions this week</div>
+        </div>
+        <div class="chart-tabs">
+            <button type="button" class="chart-tab active">7 days</button>
+            <button type="button" class="chart-tab">30 days</button>
+            <button type="button" class="chart-tab">90 days</button>
+        </div>
+    </div>
+    <div class="chart-area">
+        <svg class="network-chart" width="760" height="260" viewBox="0 0 760 260" preserveAspectRatio="none" role="img" aria-label="Network activity trend">
+            <defs>
+                <linearGradient id="networkFill" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0" stop-color="var(--primary)" stop-opacity="0.28" />
+                    <stop offset="1" stop-color="var(--primary)" stop-opacity="0" />
+                </linearGradient>
+            </defs>
+            <g class="chart-grid">
+                <path d="M20 45H740M20 100H740M20 155H740M20 210H740" />
+            </g>
+            <path class="network-fill" d="M20 176 C100 136 127 143 173 122 C227 96 262 128 318 90 C372 54 423 76 469 64 C546 44 600 88 650 68 C693 51 716 43 740 37 L740 230 L20 230 Z" />
+            <path class="network-line-main" d="M20 176 C100 136 127 143 173 122 C227 96 262 128 318 90 C372 54 423 76 469 64 C546 44 600 88 650 68 C693 51 716 43 740 37" />
+            <path class="network-line-alt" d="M20 198 C82 184 125 184 174 165 C246 137 290 169 345 134 C406 96 462 130 515 112 C588 88 642 127 700 96 C719 86 733 80 740 76" />
+        </svg>
+    </div>
+    <div class="card-footer chart-legend">
+        <span><span class="legend-swatch primary"></span> Sessions</span>
+        <span><span class="legend-swatch azure"></span> Page views</span>
+    </div>
+</div>

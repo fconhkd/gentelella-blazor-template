@@ -1,0 +1,99 @@
+@page "/settings"
+
+<PageTitle>Settings</PageTitle>
+
+<div class="page-header">
+    <div class="page-header-row">
+        <div>
+            <div class="page-pretitle">Administration</div>
+            <h1 class="page-title">Settings</h1>
+        </div>
+    </div>
+</div>
+
+<div class="settings-layout">
+    <aside class="settings-nav">
+        <a class="settings-nav-link active" href="#account">Account</a>
+        <a class="settings-nav-link" href="#notifications">Notifications</a>
+        <a class="settings-nav-link" href="#privacy">Privacy & security</a>
+        <a class="settings-nav-link" href="#appearance">Appearance</a>
+        <a class="settings-nav-link" href="#integrations">Integrations</a>
+        <a class="settings-nav-link" href="#billing">Billing</a>
+        <a class="settings-nav-link" href="#team">Team</a>
+        <div class="settings-nav-sep"></div>
+        <a class="settings-nav-link danger" href="#danger">Danger zone</a>
+    </aside>
+
+    <div class="settings-content">
+        <section class="settings-section" id="account">
+            <h2 class="settings-section-title">Account</h2>
+            <p class="settings-section-desc">Update your personal information and profile details.</p>
+            <form class="settings-form">
+                <div class="settings-row">
+                    <label>Profile picture</label>
+                    <div class="settings-control profile-control">
+                        <div class="profile-preview">A</div>
+                        <div>
+                            <button type="button" class="btn btn-outline btn-sm">Upload new</button>
+                            <div class="settings-hint">JPG, PNG, or GIF. Max 2 MB.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="settings-row">
+                    <label for="full-name">Full name</label>
+                    <input class="form-control" id="full-name" type="text" value="Aigars Silkalns" />
+                </div>
+                <div class="settings-row">
+                    <label for="email">Email address</label>
+                    <input class="form-control" id="email" type="email" value="aigars@example.com" />
+                </div>
+                <div class="settings-row">
+                    <label for="settings-role">Role</label>
+                    <input class="form-control" id="settings-role" type="text" value="Administrator" />
+                </div>
+                <div class="settings-row">
+                    <label for="timezone">Timezone</label>
+                    <select class="form-control" id="timezone">
+                        <option>(UTC+02:00) Riga</option>
+                        <option>(UTC+00:00) London</option>
+                        <option>(UTC-05:00) New York</option>
+                    </select>
+                </div>
+                <div class="settings-actions">
+                    <button type="reset" class="btn btn-outline">Cancel</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="settings-section" id="notifications">
+            <h2 class="settings-section-title">Notifications</h2>
+            <p class="settings-section-desc">Choose what you want to be notified about.</p>
+            <div class="settings-toggle-list">
+                <div class="settings-toggle-row"><div><div class="label">Email digest</div><div class="desc">Daily summary of your activity</div></div><div class="toggle on"></div></div>
+                <div class="settings-toggle-row"><div><div class="label">Project updates</div><div class="desc">When projects you are on change status</div></div><div class="toggle on"></div></div>
+                <div class="settings-toggle-row"><div><div class="label">Mentions</div><div class="desc">Push when someone mentions you in a comment</div></div><div class="toggle on"></div></div>
+                <div class="settings-toggle-row"><div><div class="label">Marketing emails</div><div class="desc">Product news and newsletters</div></div><div class="toggle"></div></div>
+            </div>
+        </section>
+
+        <section class="settings-section" id="privacy">
+            <h2 class="settings-section-title">Privacy & security</h2>
+            <p class="settings-section-desc">Manage how your account is secured.</p>
+            <div class="settings-toggle-list">
+                <div class="settings-toggle-row"><div><div class="label">Two-factor authentication</div><div class="desc">Add a second factor to every login</div></div><div class="toggle on"></div></div>
+                <div class="settings-toggle-row"><div><div class="label">Public profile</div><div class="desc">Allow your profile to be searchable</div></div><div class="toggle on"></div></div>
+                <div class="settings-toggle-row"><div><div class="label">Activity tracking</div><div class="desc">Share usage data to improve the product</div></div><div class="toggle"></div></div>
+            </div>
+        </section>
+
+        <section class="settings-section" id="appearance">
+            <h2 class="settings-section-title">Appearance</h2>
+            <p class="settings-section-desc">Control the look and density of the admin interface.</p>
+            <div class="settings-toggle-list">
+                <div class="settings-toggle-row"><div><div class="label">Follow system theme</div><div class="desc">Use your operating system preference</div></div><div class="toggle"></div></div>
+                <div class="settings-toggle-row"><div><div class="label">Compact sidebar</div><div class="desc">Collapse navigation into icon rail</div></div><div class="toggle on"></div></div>
+            </div>
+        </section>
+    </div>
+</div>

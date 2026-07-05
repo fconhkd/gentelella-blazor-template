@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-header">
+        <div>
+            <div class="card-title">Tasks</div>
+            <div class="card-subtitle" data-todo-counter>@Remaining of @Items.Count remaining</div>
+        </div>
+    </div>
+    <div class="card-body compact-card-body">
+        @foreach (var task in Items)
+        {
+            <div class="todo-row @(task.Done ? "done" : null)" @key="task.Text">
+                <button type="button" class="todo-cb @(task.Done ? "done" : null)" aria-label="Toggle task">
+                    <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M2.5 6l2.5 3 5-6" />
+                    </svg>
+                </button>
+                <span class="todo-text">@task.Text</span>
+                @if (!string.IsNullOrWhiteSpace(task.PriorityClass))
+                {
+                    <span class="todo-prio @task.PriorityClass"></span>
+                }
+                <span class="todo-date">@task.Date</span>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public IReadOnlyList<TaskItem> Items { get; set; } = [];
+
+    private int Remaining => Items.Count(item => !item.Done);
+}

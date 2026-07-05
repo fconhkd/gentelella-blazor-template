@@ -1,0 +1,83 @@
+<div class="card users-management-card">
+    <div class="card-header">
+        <div>
+            <div class="card-title">Users</div>
+            <div class="card-subtitle">Manage roles, access, and invitations.</div>
+        </div>
+        <div class="users-filters">
+            <div class="search-box users-search-box" role="search">
+                <svg class="s-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="M20 20l-3.2-3.2" />
+                </svg>
+                <input type="search" placeholder="Search users" aria-label="Search users" />
+            </div>
+            <select class="form-control users-filter-select" aria-label="Filter by role">
+                <option>All roles</option>
+                <option>Owner</option>
+                <option>Admin</option>
+                <option>Editor</option>
+                <option>Viewer</option>
+            </select>
+            <select class="form-control users-filter-select" aria-label="Filter by status">
+                <option>All statuses</option>
+                <option>Active</option>
+                <option>Pending</option>
+                <option>Suspended</option>
+            </select>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table users-table">
+                <thead>
+                    <tr>
+                        <th class="users-table-checkbox">
+                            <input type="checkbox" aria-label="Select all users" />
+                        </th>
+                        <th>User</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Last active</th>
+                        <th>Joined</th>
+                        <th class="users-actions-column" aria-label="Actions"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Items)
+                    {
+                        <tr @key="user.Email">
+                            <td class="users-table-checkbox">
+                                <input type="checkbox" aria-label="@($"Select {user.Name}")" />
+                            </td>
+                            <td>
+                                <div class="cell-customer">
+                                    <span class="cell-avatar @user.AvatarClass @(user.IsPending ? "pending" : null)">@user.Initials</span>
+                                    <span>
+                                        <span class="cell-strong">@user.Name</span>
+                                        <span class="user-email-meta">@user.Email</span>
+                                    </span>
+                                </div>
+                            </td>
+                            <td><span class="role-chip @user.RoleClass">@user.Role</span></td>
+                            <td><span class="status @user.StatusClass">@user.Status</span></td>
+                            <td>@user.LastActive</td>
+                            <td>@user.Joined</td>
+                            <td class="users-actions-column">
+                                <button type="button" class="card-opt-btn" aria-label="@($"Open actions for {user.Name}")">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                        <path d="M12 6h.01M12 12h.01M12 18h.01" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public IReadOnlyList<UserManagementItem> Items { get; set; } = [];
+}
